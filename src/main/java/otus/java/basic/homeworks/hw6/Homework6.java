@@ -26,8 +26,8 @@ public class Homework6 {
             compareNumbers();
         }
         if (currentNumber == 5) {
-            addOrSubtractAndPrint();
-        } else {
+            addOrSubtractAndPrint(5,30,false);
+        } if (currentNumber <1 || currentNumber >5 ){
             System.out.println("Некорректное значение, введите число от 1 до 5");
         }
     }
