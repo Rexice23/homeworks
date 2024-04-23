@@ -7,18 +7,14 @@ public class Homework3_3 {
     }
 
     public static void zeroOnDiagonal(int[][] arrayZeroDiagonal) {
-        for (int i = 0; i < arrayZeroDiagonal.length; i++) {
-            for (int j = 0; j < arrayZeroDiagonal[i].length; j++) {
-                if (i == j) {
-                    arrayZeroDiagonal[i][j] = 0;
-                }
-            }
+        for (int i = 0; i < 3; i++){
+            arrayZeroDiagonal[i][i] = 0;
         }
         for (int i = 0; i < arrayZeroDiagonal.length; i++) {
             for (int j = 0; j < arrayZeroDiagonal[i].length; j++) {
                 System.out.print(arrayZeroDiagonal[i][j] + " ");
-            }
-            System.out.println();
+           }
+           System.out.println();
         }
     }
 }
