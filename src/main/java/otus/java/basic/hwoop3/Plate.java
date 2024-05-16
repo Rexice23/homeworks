@@ -8,17 +8,19 @@ public class Plate {
     public Plate(int maxFood) {
         this.maxFood = maxFood;
         this.currentFood = maxFood;
+
     }
-    public void addFood (int amountFood){
-        if (currentFood + amountFood <= maxFood){
-            currentFood += amountFood;
+    public void addFood (int amount){
+        if (amount >= 0 && currentFood + amount <= maxFood){
+            currentFood += amount;
         } else {
+            System.out.println("Нельзя положитель отрицательное количество еды");
             currentFood = maxFood;
         }
     }
-    public boolean decreaseFood (int amountFood){
-        if (currentFood - amountFood >= 0){
-            currentFood -= amountFood;
+    public boolean decreaseFood (int amount){
+        if (amount >= 0 && currentFood - amount >= 0){
+            currentFood -= amount;
             return true;
         } else {
             return false;
