@@ -15,8 +15,8 @@ public class OffRoadCar implements Transport {
 
     @Override
     public boolean move(int distance, Terrain terrain) {
-        if (this.fuel < 0) {
-            System.out.println("Топливо не может быть отрицательным");
+        if (fuel < 0) {
+            throw new IllegalStateException("Топливо не может быть отрицательным");
         }
         if (this.fuel >= distance) {
             this.fuel -= distance;

@@ -15,17 +15,16 @@ public class Horse implements Transport {
 
     @Override
     public boolean move(int distance, Terrain terrain) {
-        if (terrain == Terrain.SWAMP){
-            System.out.println("Лошадь не может скакать по болоту");
-            return false;
+        if (strength < 0) {
+            throw new IllegalStateException("Выносливость лошади не может быть отрицательной");
         }
-        if (strength < 0 ) {
-            System.out.println("Движение невозможно при отрицательной силе выносливости");
+        if (terrain == Terrain.SWAMP) {
+            System.out.println("Лошадь не может скакать по болоту");
             return false;
         }
         if (this.strength >= distance) {
             this.strength -= distance;
-            System.out.println("Лошадь проскакала дистанцию в" + " " + distance  + " км" + " по " + terrain.getName());
+            System.out.println("Лошадь проскакала дистанцию в" + " " + distance + " км" + " по " + terrain.getName());
             return true;
         } else {
             System.out.println("Сил не хватило");
