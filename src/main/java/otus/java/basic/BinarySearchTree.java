@@ -11,7 +11,9 @@ public class BinarySearchTree<T extends Comparable<T>> implements SearchTree<T> 
     }
 
     private Node<T> sortedListTree(List<T> list, int start, int end) {
-        if (start > end) return null;
+        if (start > end) {
+            return null;
+        }
         int mid = (start + end) / 2;
         Node<T> node = new Node<>(list.get(mid));
         node.left = sortedListTree(list, start, mid - 1);
