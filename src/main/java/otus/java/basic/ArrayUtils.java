@@ -1,38 +1,34 @@
 package otus.java.basic;
 
+import java.util.Arrays;
+
 public class ArrayUtils {
-    public static int[] getElementsAfterLastOne(int[] array) {
-        boolean hasOne = false;
-        for (int num : array) {
-            if (num == 1) {
-                hasOne = true;
-                break;
-            }
-        }
-
-        if (!hasOne) {
-            throw new RuntimeException("Массив не содержит единиц");
-        }
-
-        int lastOneIndex = -1;
+    public static int[] getElementsAfterLastOne(int[] array) throws RuntimeException {
+        int indexLastOne = -1;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 1) {
-                lastOneIndex = i;
+                indexLastOne = i;
             }
         }
-
-        int[] result = new int[array.length - lastOneIndex - 1];
-        System.arraycopy(array, lastOneIndex + 1, result, 0, result.length);
-
-        return result;
+        if (indexLastOne == -1) {
+            throw new RuntimeException("Массив не содержит единиц");
+        }
+        return Arrays.copyOfRange(array, indexLastOne + 1, array.length);
     }
 
     public static boolean isArrayConsistsOnlyOfOnesAndTwos(int[] array) {
-        for (int num : array) {
-            if (num != 1 && num != 2) {
+        boolean isHasOne = false;
+        boolean isHasTwo = false;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == 1) {
+                isHasOne = true;
+            } else if (array[i] == 2) {
+                isHasTwo = true;
+            } else {
                 return false;
             }
         }
-        return true;
+        return isHasOne && isHasTwo;
     }
 }
